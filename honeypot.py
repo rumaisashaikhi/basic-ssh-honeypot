@@ -23,7 +23,7 @@ while True:
     client, addr = sock.accept()
     print(f"[!] Connection from {addr[0]}")
 
-    client.sendall(b"Fake SSH Server\r\n")
+    client.sendall(b"SSH-2.0-OpenSSH_8.2p1 Ubuntu-4ubuntu0.5\r\n")
     client.sendall(b"Username: ")
     username = recv_line(client)
 
@@ -37,3 +37,4 @@ while True:
 
     client.sendall(b"\r\nLogin failed!\r\n")
     client.close()
+
